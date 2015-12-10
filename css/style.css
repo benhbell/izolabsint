@@ -1178,7 +1178,7 @@ box-shadow: 5px 5px 0px #20AE61;
 }
 .parlex8-back {
   padding-top: 15px;
-  background-color: #ffce54;
+  background-color: #656565;
 }
 .contact-heading {
   color: white;
@@ -1229,9 +1229,9 @@ background: rgba(0, 0, 0, 0);
 
 .ex-btn-two {
   color: #FFF;
-background: #223C4B;
+background: #396496;
   padding: 10px;
-border: 1px solid #223C4B;
+border: 1px solid #396496;
 border-radius: 4px ;
 font-weight: 100;
   font-size: 35px;
@@ -1341,13 +1341,24 @@ font-size: 18px;
   text-align: center;
 }
 .call-to-action {
-  background-color: #303030;
+  background-color: #FFFFFF;
   background-image: none;
   background-position: 0% 0%;
   background-size: auto;
   background-repeat: repeat;
   background-attachment: scroll;
 }
+
+.call-to-back div.w-row {
+    background-color:#DFDFDF;
+
+}
+
+.call-to-back div.w-row p {
+    color:#000000;
+
+}
+
 .call-row {
   padding: 20px 15px;
   border: 1px solid #ccc;
@@ -1357,7 +1368,7 @@ font-size: 18px;
 }
 .call-to-h3 {
   background-color: transparent;
-  color: #eee;
+  color: #000000;
   text-align: left;
   text-decoration: none;
 }
@@ -1366,18 +1377,18 @@ font-size: 18px;
   width: 60%;
   margin: 25px auto 0px;
   padding: 9px;
-  border: 1px solid #eee;
+  border: 1px solid #5099D0;
   border-radius: 2px;
   color: #eee;
   text-decoration: none;
   text-align: center;
+    background-color: #5099D0;
 }
 .call-to-butn:hover {
-  background-color: #ed5565;
-  border: 1px solid #ed5565;
+  background-color: #396496;
 }
 .cal-col-1 {
-  border-right: 1px solid white;
+  border-right: 1px solid #000000;
 }
 @media (max-width: 991px) {
   .parlex {
