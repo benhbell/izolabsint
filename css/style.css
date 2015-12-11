@@ -1868,8 +1868,78 @@ html { overflow-y: scroll; }
 img.logo
 {
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
     width: 200px;
 }
 
+div.logo a
+{
+   line-height: 0px;
+}
 
+div.intro,div.intro h1, div.intro p, .intro-des {
+    color:#000000;
+}
+
+div#intro-animation div.wrap {
+    margin-top:0px;
+    margin-bottom:30px;
+}
+
+div#guidelines div.wrap {
+    margin-top:80px;
+}
+
+div.fixed-header {
+
+    box-shadow: 0px -1px 18px #000000;
+
+
+}
+
+div#about div.wrap {
+
+    margin-top:80px;
+}
+
+input[type="text"],textarea {
+    line-height: normal;
+    border-radius: 5px;
+    border: 2px solid #5099D0;
+    padding: 2px;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+textarea {
+    min-height: 200px;
+
+}
+
+.w-form {
+    color:#FFFFFF;
+}
+
+.ss-item {
+    margin-bottom:20px;
+}
+
+label {
+    width: 100%;
+}
+
+ul.ss-choices {
+    padding-left:20px;
+}
+
+input[type="submit"] {
+    background-color: #5099D0;
+    padding:7px 17px;
+    border:none;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 5px;
+    color:#FFFFFF;
+    font-size: 18px;
+}
