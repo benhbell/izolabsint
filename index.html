@@ -11,8 +11,41 @@
   <script>
     if (/mobile/i.test(navigator.userAgent)) document.documentElement.className += ' w-mobile';
   </script>
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!--<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">-->
   <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+    <script type="text/javascript">
+        /**
+         * @license
+         *
+         * H5F 1.1.1
+         * See https://github.com/ryanseddon/H5F/ for details.
+         *
+         * Copyright (c) 2013 Ryan Seddon
+         *
+         * Permission is hereby granted, free of charge, to any person
+         * obtaining a copy of this software and associated documentation
+         * files (the "Software"), to deal in the Software without
+         * restriction, including without limitation the rights to use,
+         * copy, modify, merge, publish, distribute, sublicense, and/or sell
+         * copies of the Software, and to permit persons to whom the
+         * Software is furnished to do so, subject to the following
+         * conditions:
+         *
+         * The above copyright notice and this permission notice shall be
+         * included in all copies or substantial portions of the Software.
+         *
+         * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+         * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+         * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+         * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+         * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+         * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+         * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+         * OTHER DEALINGS IN THE SOFTWARE.
+         */
+        (function(e,t){"function"==typeof define&&define.amd?define(t):"object"==typeof module&&module.exports?module.exports=t():e.H5F=t()})(this,function(){var e,t,a,i,n,r,l,s,o,u,d,c,v,p,f,m,b,h,g,y,w,C,N,A,E,$,x=document,k=x.createElement("input"),q=/^[a-zA-Z0-9.!#$%&'*+-\/=?\^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,M=/[a-z][\-\.+a-z]*:\/\//i,L=/^(input|select|textarea)$/i;return r=function(e,t){var a=!e.nodeType||!1,i={validClass:"valid",invalidClass:"error",requiredClass:"required",placeholderClass:"placeholder",onSubmit:Function.prototype,onInvalid:Function.prototype};if("object"==typeof t)for(var r in i)t[r]===void 0&&(t[r]=i[r]);if(n=t||i,a)for(var s=0,o=e.length;o>s;s++)l(e[s]);else l(e)},l=function(a){var i,r=a.elements,l=r.length,c=!!a.attributes.novalidate;if(g(a,"invalid",o,!0),g(a,"blur",o,!0),g(a,"input",o,!0),g(a,"keyup",o,!0),g(a,"focus",o,!0),g(a,"change",o,!0),g(a,"click",u,!0),g(a,"submit",function(i){return e=!0,t||c||a.checkValidity()?(n.onSubmit.call(a,i),void 0):(w(i),void 0)},!1),!v())for(a.checkValidity=function(){return d(a)};l--;)i=!!r[l].attributes.required,"fieldset"!==r[l].nodeName.toLowerCase()&&s(r[l])},s=function(e){var t=e,a=h(t),n={type:t.getAttribute("type"),pattern:t.getAttribute("pattern"),placeholder:t.getAttribute("placeholder")},r=/^(email|url)$/i,l=/^(input|keyup)$/i,s=r.test(n.type)?n.type:n.pattern?n.pattern:!1,o=p(t,s),u=m(t,"step"),v=m(t,"min"),b=m(t,"max"),g=!(""===t.validationMessage||void 0===t.validationMessage);t.checkValidity=function(){return d.call(this,t)},t.setCustomValidity=function(e){c.call(t,e)},t.validity={valueMissing:a,patternMismatch:o,rangeUnderflow:v,rangeOverflow:b,stepMismatch:u,customError:g,valid:!(a||o||u||v||b||g)},n.placeholder&&!l.test(i)&&f(t)},o=function(e){var t=C(e)||e,a=/^(input|keyup|focusin|focus|change)$/i,r=/^(submit|image|button|reset)$/i,l=/^(checkbox|radio)$/i,u=!0;!L.test(t.nodeName)||r.test(t.type)||r.test(t.nodeName)||(i=e.type,v()||s(t),t.validity.valid&&(""!==t.value||l.test(t.type))||t.value!==t.getAttribute("placeholder")&&t.validity.valid?(A(t,[n.invalidClass,n.requiredClass]),N(t,n.validClass)):a.test(i)?t.validity.valueMissing&&A(t,[n.requiredClass,n.invalidClass,n.validClass]):t.validity.valueMissing?(A(t,[n.invalidClass,n.validClass]),N(t,n.requiredClass)):t.validity.valid||(A(t,[n.validClass,n.requiredClass]),N(t,n.invalidClass)),"input"===i&&u&&(y(t.form,"keyup",o,!0),u=!1))},d=function(t){var a,i,r,l,s,u=!1;if("form"===t.nodeName.toLowerCase()){a=t.elements;for(var d=0,c=a.length;c>d;d++)i=a[d],r=!!i.attributes.disabled,l=!!i.attributes.required,s=!!i.attributes.pattern,"fieldset"!==i.nodeName.toLowerCase()&&!r&&(l||s&&l)&&(o(i),i.validity.valid||u||(e&&i.focus(),u=!0,n.onInvalid.call(t,i)));return!u}return o(t),t.validity.valid},c=function(e){var t=this;t.validationMessage=e},u=function(e){var a=C(e);a.attributes.formnovalidate&&"submit"===a.type&&(t=!0)},v=function(){return E(k,"validity")&&E(k,"checkValidity")},p=function(e,t){if("email"===t)return!q.test(e.value);if("url"===t)return!M.test(e.value);if(t){var i=e.getAttribute("placeholder"),n=e.value;return a=RegExp("^(?:"+t+")$"),n===i?!1:""===n?!1:!a.test(e.value)}return!1},f=function(e){var t={placeholder:e.getAttribute("placeholder")},a=/^(focus|focusin|submit)$/i,r=/^(input|textarea)$/i,l=/^password$/i,s=!!("placeholder"in k);s||!r.test(e.nodeName)||l.test(e.type)||(""!==e.value||a.test(i)?e.value===t.placeholder&&a.test(i)&&(e.value="",A(e,n.placeholderClass)):(e.value=t.placeholder,g(e.form,"submit",function(){i="submit",f(e)},!0),N(e,n.placeholderClass)))},m=function(e,t){var a=parseInt(e.getAttribute("min"),10)||0,i=parseInt(e.getAttribute("max"),10)||!1,n=parseInt(e.getAttribute("step"),10)||1,r=parseInt(e.value,10),l=(r-a)%n;return h(e)||isNaN(r)?"number"===e.getAttribute("type")?!0:!1:"step"===t?e.getAttribute("step")?0!==l:!1:"min"===t?e.getAttribute("min")?a>r:!1:"max"===t?e.getAttribute("max")?r>i:!1:void 0},b=function(e){var t=!!e.attributes.required;return t?h(e):!1},h=function(e){var t=e.getAttribute("placeholder"),a=/^(checkbox|radio)$/i,i=!!e.attributes.required;return!(!i||""!==e.value&&e.value!==t&&(!a.test(e.type)||$(e)))},g=function(e,t,a,i){E(window,"addEventListener")?e.addEventListener(t,a,i):E(window,"attachEvent")&&window.event!==void 0&&("blur"===t?t="focusout":"focus"===t&&(t="focusin"),e.attachEvent("on"+t,a))},y=function(e,t,a,i){E(window,"removeEventListener")?e.removeEventListener(t,a,i):E(window,"detachEvent")&&window.event!==void 0&&e.detachEvent("on"+t,a)},w=function(e){e=e||window.event,e.stopPropagation&&e.preventDefault?(e.stopPropagation(),e.preventDefault()):(e.cancelBubble=!0,e.returnValue=!1)},C=function(e){return e=e||window.event,e.target||e.srcElement},N=function(e,t){var a;e.className?(a=RegExp("(^|\\s)"+t+"(\\s|$)"),a.test(e.className)||(e.className+=" "+t)):e.className=t},A=function(e,t){var a,i,n="object"==typeof t?t.length:1,r=n;if(e.className)if(e.className===t)e.className="";else for(;n--;)a=RegExp("(^|\\s)"+(r>1?t[n]:t)+"(\\s|$)"),i=e.className.match(a),i&&3===i.length&&(e.className=e.className.replace(a,i[1]&&i[2]?" ":""))},E=function(e,t){var a=typeof e[t],i=RegExp("^function|object$","i");return!!(i.test(a)&&e[t]||"unknown"===a)},$=function(e){for(var t=document.getElementsByName(e.name),a=0;t.length>a;a++)if(t[a].checked)return!0;return!1},{setup:r}});
+
+    </script>
 </head>
 <body>
   <div class="fix-header" id="home">
@@ -30,7 +63,7 @@
 
 
         <div class="w-col w-col-3 logo">
-          <a href="#"><img class="logo" src="images/logo.png" alt="iZotope Labs"></a>
+          <a href="#"><img class="logo" src="images/web_labs.png" alt="iZotope Labs"></a>
         </div>
 
         <!--///////////////////////////////////////////////////////
@@ -80,7 +113,7 @@
   <div class="slidersection">
     <div class="sp-slideshow">
       
-        <input id="button-1" type="radio" name="radio-set" class="sp-selector-1" checked="checked" />
+        <!--<input id="button-1" type="radio" name="radio-set" class="sp-selector-1" checked="checked" />
         <label for="button-1" class="button-label-1"></label>
         
         <input id="button-2" type="radio" name="radio-set" class="sp-selector-2" />
@@ -99,16 +132,16 @@
         <label for="button-2" class="sp-arrow sp-a2"></label>
         <label for="button-3" class="sp-arrow sp-a3"></label>
         <label for="button-4" class="sp-arrow sp-a4"></label>
-        <label for="button-5" class="sp-arrow sp-a5"></label>
+        <label for="button-5" class="sp-arrow sp-a5"></label>-->
         
         <div class="sp-content">
           <div class="sp-parallax-bg"></div>
           <ul class="sp-slider clearfix">
-            <li><img src="images/slider/slider1.png" alt="image01" /></li>
-            <li><img src="images/slider/slider2.png" alt="image02" /></li>
+            <li><img src="images/iZolabs_Header1.png" alt="image01" /></li>
+            <!--<li><img src="images/slider/slider2.png" alt="image02" /></li>
             <li><img src="images/slider/slider3.png" alt="image03" /></li>
             <li><img src="images/slider/slider4.png" alt="image04" /></li>
-            <li><img src="images/slider/slider5.png" alt="image05" /></li>
+            <li><img src="images/slider/slider5.png" alt="image05" /></li>-->
           </ul>
         </div><!-- sp-content -->
         
@@ -134,14 +167,11 @@
         <div class="wrap">
           <div class="about">
             <h1 class="about-heading">ABOUT</h1>
-            <div class="about-text">WHO WE ARE ?</div>
             <div class="sepreater"></div>
           </div>
           <p class="about-des">We are Elegance. We create stunning identities for our clients that people fall in love with.&nbsp;
             <br>Whether it's an app icon, a logo for a hot startup, or just an illustration, we'll work hard until you can't help but say "WOW!". 
           </p>
-          <img class="about-img" src="images/about.png"
-          alt="52de15aa5d3566c14300015e_about.png">
         </div>
       </div>
       </div>
@@ -216,21 +246,14 @@
                 <div class="experinc-box">
                 <h3 class="experinc-box-h3">Submit Idea</h3>
                 <p>Have an idea but don't know where to start? Fill out this form and we'll create posting for you on our AHA idea board.</p>
-                <div class="buttons">
-                    <div class="btn-ex-one">
-                  <a class="ex-btn" href="#">Read More</a>
-                </div>
                 <div class="btn-ex-two">
-                  <a class="ex-btn-two" href="#">Buy Now!</a>
+                  <a class="ex-btn-two" href="https://izolabs.ideas.aha.io/ideas/new">MAKE ME A THING!</a>
                 </div>
               </div>
               </div>
               </div>
             </div>
             <div class="w-col w-col-6 exp-col2">
-              <div class="col2-div">
-                <img src="images/who-we-are.png">
-              </div>
             </div>
           </div>
         </div>
@@ -685,26 +708,58 @@
       <div class="w-container">
         <div class="wrap">
           <div class="contact-div">
-            <h1 class="contact-heading">Submit a Product</h1>
+            <h1 class="contact-heading">Submit a Thing</h1>
             <div class="sepreater"></div>
           </div>
           <p class="contact-para">Fill out this form to submit an idea</p>
           <div class="w-form">
-            <form action="contact.php" method="post">
-            <label for="name">Name:</label>
-             <input class="w-input" type="text" placeholder="Enter your name" name="cf_name">
-           <label for="email">Email Address:</label>
-             <input class="w-input" placeholder="Enter your email address" type="text" name="cf_email" required="required">
-           <label for="email">Your Message:</label>
-             <textarea class="w-input message" placeholder="Enter your Message Here" name="cf_message"></textarea><br>
-           <input class="w-button" type="submit" value="Send">
-         </form>
-          <div class="w-form-done">
-              <p>Thank you! Your submission has been received!</p>
-            </div>
-            <div class="w-form-fail">
-              <p>Oops! Something went wrong while submitting the form :(</p>
-            </div>
+              <form action="https://docs.google.com/a/izotope.com/forms/d/1uIfPJaHu-nod2QnzSY74uD2_LA-282Ec7FJsZ2DUI_8/formResponse" method="POST" id="ss-form" target="_self" onsubmit=""><ol role="list" class="ss-question-list" style="padding-left: 0">
+                  <div class="ss-form-question errorbox-good" role="listitem">
+                      <div dir="auto" class="ss-item  ss-text"><div class="ss-form-entry">
+                          <label class="ss-q-item-label" for="entry_414902871"><div class="ss-q-title">What is your Product Idea?
+                          </div>
+                              <div class="ss-q-help ss-secondary-text" dir="auto">In one sentence or less</div></label>
+                          <input type="text" name="entry.414902871" value="" class="ss-q-short" id="entry_414902871" dir="auto" aria-label="What is your Product Idea? In one sentence or less " title="">
+                          <div class="error-message" id="825558688_errorMessage"></div>
+                          <div class="required-message">This is a required question</div>
+                      </div></div></div> <div class="ss-form-question errorbox-good" role="listitem">
+                  <div dir="auto" class="ss-item  ss-radio"><div class="ss-form-entry">
+                      <label class="ss-q-item-label" for="entry_475382844"><div class="ss-q-title">What kind of help do you need?
+                      </div>
+                          <div class="ss-q-help ss-secondary-text" dir="auto"></div></label>
+
+                      <ul class="ss-choices" role="radiogroup" aria-label="What kind of help do you need?  "><li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1238345388" value="Development" id="group_1238345388_1" role="radio" class="ss-q-radio" aria-label="Development"></span>
+                          <span class="ss-choice-label">Development</span>
+                      </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1238345388" value="Design" id="group_1238345388_2" role="radio" class="ss-q-radio" aria-label="Design"></span>
+                          <span class="ss-choice-label">Design</span>
+                      </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1238345388" value="Marketing" id="group_1238345388_3" role="radio" class="ss-q-radio" aria-label="Marketing"></span>
+                          <span class="ss-choice-label">Marketing</span>
+                      </label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="radio" name="entry.1238345388" value="Strategy" id="group_1238345388_4" role="radio" class="ss-q-radio" aria-label="Strategy"></span>
+                          <span class="ss-choice-label">Strategy</span>
+                      </label></li></ul>
+                      <div class="error-message" id="475382844_errorMessage"></div>
+                      <div class="required-message">This is a required question</div></div></div></div> <div class="ss-form-question errorbox-good" role="listitem">
+                  <div dir="auto" class="ss-item  ss-paragraph-text"><div class="ss-form-entry">
+                      <label class="ss-q-item-label" for="entry_542574438"><div class="ss-q-title">Describe your Idea
+                      </div>
+                          <div class="ss-q-help ss-secondary-text" dir="auto">in 200 words or less</div></label>
+                      <textarea name="entry.542574438" rows="8" cols="0" class="ss-q-long" id="entry_542574438" dir="auto" aria-label="Describe your Idea in 200 words or less "></textarea>
+                      <div class="error-message" id="659360453_errorMessage"></div>
+                      <div class="required-message">This is a required question</div>
+                  </div></div></div>
+                  <input type="hidden" name="draftResponse" value="[,,&quot;7095633299090974670&quot;]
+">
+                  <input type="hidden" name="pageHistory" value="0">
+
+                  <input type="hidden" name="fvv" value="0">
+
+
+                  <input type="hidden" name="fbzx" value="7095633299090974670">
+
+                  <div class="ss-item ss-navigate"><table id="navigation-table"><tbody><tr><td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
+                      <input type="submit" name="submit" value="Submit" id="ss-submit" class="jfk-button jfk-button-action ">
+                      <div class="ss-password-warning ss-secondary-text">Never submit passwords through Google Forms.</div></td>
+                  </tr></tbody></table></div></ol></form>
           </div>
         </div>
       </div>
@@ -765,7 +820,7 @@
       <div class="w-container">
         <div class="wrap">
           <img class="footer-logo" src="images/footer-logo.png" alt="Elegance">
-          <div class="footer-social">
+          <!--<div class="footer-social">
             <div class="fotter-social-wrap">
               <a href="https://www.facebook.com/"><img class="fotter-social" src="images/social/Facebook.png" alt="52dd249c929b601f5400054c_Facebook.png"></a>
               <a href="https://www.twitter.com/"><img class="fotter-social" src="images/social/Twitter.png" alt="52dd24f2929b601f54000551_Twitter.png"></a>
@@ -780,10 +835,10 @@
               <a href="https://www.tumblr.com/"><img class="fotter-social" src="images/social/Tumblr.png" alt="52de54021b42bfc2430004a3_Tumblr.png"></a>
               <a href="https://www.youtube.com/"><img class="fotter-social" src="images/social/Youtube.png" alt="52de54495d3566c14300040a_Youtube.png"></a>
             </div>
-          </div>
+          </div>-->
           <div>
             <div class="fotter-text"><p class="fotter-quote">“ THE LIGHT WITHIN US BOWS TO THE LIGHT WITHIN YOU. ”</p>
-              <p class="copyright-area">©2014 ELEGANCE. ALL RIGHTS RESERVED,TEMPLATE BY&nbsp;<a href="https://carinotech.com" title="Carino Technologies" target="_blank">CARINO TECHNOLOGIES</a></p></div>
+              <p class="copyright-area">©2015 iZotope. ALL RIGHTS RESERVED,TEMPLATE BY&nbsp;<a href="https://carinotech.com" title="Carino Technologies" target="_blank">CARINO TECHNOLOGIES</a></p></div>
           </div>
         </div>
       </div>
@@ -804,6 +859,9 @@
   <script src="js/toucheffects.js"></script>
   <script src="js/modernizr.js"></script>
   <script src="js/animation.js"></script>
+  <script type="text/javascript" src="/static/forms/client/js/4035192025-formviewer_prd.js"></script>
+  <script type="text/javascript">H5F.setup(document.getElementById('ss-form'));
+  _initFormViewer("[100,,[[[1701313686,[[6,202,[\x22200\x22]\n,\x22Sorry, your idea is too long to submit here - please go directly to the portal https://izolabs.ideas.aha.io/ to the portal\x22]\n]\n]\n]\n]\n]\n", true);</script>
 
 </body>
 </html>
